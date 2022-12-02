@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 @layer components {
     .sidebar-icon {
         @apply relative flex items-center justify-center 
@@ -21,8 +30,20 @@
     }
 
     .sidebar-main {
-        @apply fixed top-0 left-0 h-screen 
-                w-16 m-0 flex flex-col 
-                bg-gray-900 text-white shadow;
+        @apply fixed top-0 left-0 h-screen
+                w-16 flex flex-col 
+                bg-gray-900 text-white shadow-lg;
+    }
+
+    .sidebar-hr {
+        @apply border border-gray-700 rounded-full mx-2
+    }
+
+    .content-container {
+        @apply flex flex-col bg-gray-700 m-0 h-full w-full overflow-hidden
+    }
+
+    .content-list {
+        @apply flex w-full h-full mt-0 ml-0 mx-auto px-0 items-center
     }
 }
