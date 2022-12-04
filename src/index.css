@@ -40,10 +40,12 @@
     }
 
     .content-container {
-        @apply flex flex-col bg-gray-700 m-0 h-full w-full overflow-hidden
+        @apply flex flex-1 h-screen w-screen bg-gray-700 text-white;
+        padding-left: calc(4rem + 0.8rem);
+        padding-top: calc((1rem + 0.5rem) / 4);
     }
 
     .content-list {
-        @apply flex w-full h-full mt-0 ml-0 mx-auto px-0 items-center
+        @apply flex w-full h-full mt-0 ml-0 mx-auto px-0
     }
 }
