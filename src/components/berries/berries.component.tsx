@@ -1,4 +1,5 @@
 import { useEffect } from "react"
+import { Card } from "../wrapper"
 
 export const Berries = (props: {defaultClass?:string, title:string}) => {
 
@@ -8,10 +9,7 @@ export const Berries = (props: {defaultClass?:string, title:string}) => {
 
     return(
         <main className={ (props.defaultClass)?? 'content-container'}>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum temporibus veniam fugiat. Incidunt illum sequi ratione cupiditate voluptate soluta inventore doloribus distinctio saepe odio facere vitae tenetur, ipsum officiis dignissimos.
-            <p>
-                { Math.floor(Math.random() * 10^10 - 1) + 1 }
-            </p>
+            <Card page="berries"/>
         </main>
     )
 }

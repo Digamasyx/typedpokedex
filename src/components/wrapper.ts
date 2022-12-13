@@ -4,4 +4,5 @@ export { Overview } from "./overview/overview.component";
 export { Sidebar } from "./sidebar/sidebar.component";
 export { Games } from "./games/games.components";
 export { Items } from './items/items.components';
-export { Machine } from './machines/machines.component'
+export { Machine } from './machines/machines.component';
+export { Card } from './cards/cards.component';

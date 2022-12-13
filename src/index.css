@@ -48,4 +48,36 @@
     .content-list {
         @apply flex w-full h-full mt-0 ml-0 mx-auto px-0
     }
+
+    .card-container {
+        @apply justify-center;
+    }
+    
+    .card-body {
+        @apply rounded-lg shadow-lg bg-white max-w-sm
+    }
+
+    .card-text {
+        @apply p-6
+    }
+
+    .card-title {
+        @apply text-gray-900 text-xl font-medium mb-2
+    }
+
+    .card-content {
+        @apply text-gray-700 text-base mb-4
+    }
+
+    .card-btn {
+        @apply inline-block px-6 py-2.5 bg-blue-600 text-white 
+        font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg
+        focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 
+        active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out;
+
+    }
+
+    .card-img {
+        @apply rounded-t-lg
+    }
 }
