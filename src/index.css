@@ -40,9 +40,13 @@
     }
 
     .content-container {
-        @apply flex flex-1 h-screen w-screen bg-gray-700 text-white;
+        @apply flex flex-1 h-full w-screen bg-gray-700 text-white;
         padding-left: calc(4rem + 0.8rem);
         padding-top: calc((1rem + 0.5rem) / 4);
+    }
+
+    .card {
+        @apply flex flex-wrap
     }
 
     .content-list {
@@ -63,6 +67,10 @@
 
     .card-title {
         @apply text-gray-900 text-xl font-medium mb-2
+    }
+
+    .card-title > b {
+        @apply capitalize
     }
 
     .card-content {

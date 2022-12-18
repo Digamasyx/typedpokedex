@@ -39,6 +39,18 @@ export class PushData {
                     
                 }
             }
+            if (data[0].interval) {
+                try {
+                    if (data[0].interval.offset) this.data = await this.#api.pokemon.listPokemons(data[0].interval.offset, data[0].interval.limit);
+                    else this.data = await this.#api.pokemon.listPokemons(0,data[0].interval.limit);
+                    
+                } catch (err) {
+                    throw err;
+                } finally {
+                    if (!returnFn) return null;
+                    else return returnFn(this.data)
+                }
+            }
         }
         return 0;
     }
@@ -52,5 +64,9 @@ type reqData = [
         dataToReq:string,
         name?:string,
         id?:number|number[],
+        interval?: {
+            limit:number,
+            offset?:number
+        }
     }
 ]
