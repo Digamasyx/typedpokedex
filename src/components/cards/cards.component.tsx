@@ -84,8 +84,8 @@ async function renderPokemon(limit:number, offset?:number): Promise<Map<any, any
 async function dataGetter(callback:any, limit:number, offset?:number) {
     let GET = new PushData();
 
-    if (offset) await GET.getData({data: [{dataToReq: "pokemon", interval: {limit: limit, offset: offset}}]})
-    else if (!offset) await GET.getData({data: [{dataToReq: "pokemon", interval: {limit: limit}}]})
+    if (offset) await GET.getData({data: {dataToReq: "pokemon", interval: {limit: limit, offset: offset}}})
+    else if (!offset) await GET.getData({data: {dataToReq: "pokemon", interval: {limit: limit}}})
     
     return callback(GET.data)
 }
