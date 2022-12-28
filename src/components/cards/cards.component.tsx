@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 export function Card(props: { page:string, pokemon?:string }) {
 
-    const [mapArr, setMapArr] = useState(new Array())
+    const [mapArr, setMapArr] = useState(Array)
 
     useEffect(() => {
         async function getMap() {
@@ -22,7 +22,7 @@ export function Card(props: { page:string, pokemon?:string }) {
         <div className="cards">
             <ul className="card">
 
-            {mapArr.map((name, index) =>
+            {mapArr.map((name:any, index) =>
                 <li key={index}>
                     <div className="card-main">
                         <div className="card-img-div">

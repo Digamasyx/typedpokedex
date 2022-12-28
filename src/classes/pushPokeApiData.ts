@@ -66,7 +66,7 @@ export class PushData {
         if (returnType === "map") {
 
             await this.data.results.map((pokem:unknown, index:unknown) => {
-                this.pokemons.set(index, pokem)
+                return this.pokemons.set(index, pokem)
             })
 
             return this.pokemons
