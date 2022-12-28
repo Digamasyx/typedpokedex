@@ -4,11 +4,13 @@ import { reqData, callbackFn, returnsVal } from 'apiTypings'
 export class PushData {
 
     data:any;
-    #api;
+    private api;
+    private pokemons:Map<unknown, unknown>
 
     constructor() {
 
-        this.#api = new MainClient();
+        this.api = new MainClient();
+        this.pokemons = new Map()
         
     }
 
@@ -31,7 +33,7 @@ export class PushData {
         if (data.dataToReq.toLowerCase() === "pokemon") {
             if (data.name) {
                 try {
-                    this.data = await this.#api.pokemon.getPokemonByName(data.name);
+                    this.data = await this.api.pokemon.getPokemonByName(data.name);
                 } catch (err) {
                     throw err;
                 } finally {
@@ -42,8 +44,8 @@ export class PushData {
             }
             if (data.interval) {
                 try {
-                    if (data.interval.offset) this.data = await this.#api.pokemon.listPokemons(data.interval.offset, data.interval.limit);
-                    else this.data = await this.#api.pokemon.listPokemons(0,data.interval.limit);
+                    if (data.interval.offset) this.data = await this.api.pokemon.listPokemons(data.interval.offset, data.interval.limit);
+                    else this.data = await this.api.pokemon.listPokemons(0,data.interval.limit);
                     
                 } catch (err) {
                     throw err;
@@ -54,6 +56,32 @@ export class PushData {
             }
         }
         return 0;
+    }
+
+    async returnDataFn(returnType:"array"|"map",limit:number, offset?: number) {
+
+        if (offset) await this.getData({data: {dataToReq: "pokemon", interval: {limit: limit, offset:offset}}})
+        else await this.getData({data: {dataToReq: "pokemon", interval: {limit: limit}}})
+
+        if (returnType === "map") {
+
+            await this.data.results.map((pokem:unknown, index:unknown) => {
+                this.pokemons.set(index, pokem)
+            })
+
+            return this.pokemons
+
+        } else {
+
+            let arrPk = Object.values<object>(await this.data.results)
+            console.log(arrPk);
+
+            return arrPk
+        }
+    }
+
+    isObjectArray(obj:Promise<Map<unknown, unknown> | object[]>): obj is Promise<Array<object>> {
+        return (obj as Promise<object>) !== undefined
     }
 }
 

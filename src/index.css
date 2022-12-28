@@ -40,52 +40,44 @@
     }
 
     .content-container {
-        @apply flex flex-1 h-full w-screen bg-gray-700 text-white;
+        @apply flex flex-1 h-full w-screen bg-gray-700 text-white absolute;
         padding-left: calc(4rem + 0.8rem);
         padding-top: calc((1rem + 0.5rem) / 4);
+        z-index: -1;
     }
 
-    .card {
-        @apply flex flex-wrap
+    .card-main {
+        @apply flex font-sans
     }
 
-    .content-list {
-        @apply flex w-full h-full mt-0 ml-0 mx-auto px-0
-    }
-
-    .card-container {
-        @apply justify-center;
-    }
-    
-    .card-body {
-        @apply rounded-lg shadow-lg bg-white max-w-sm
-    }
-
-    .card-text {
-        @apply p-6
-    }
-
-    .card-title {
-        @apply text-gray-900 text-xl font-medium mb-2
-    }
-
-    .card-title > b {
-        @apply capitalize
-    }
-
-    .card-content {
-        @apply text-gray-700 text-base mb-4
-    }
-
-    .card-btn {
-        @apply inline-block px-6 py-2.5 bg-blue-600 text-white 
-        font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg
-        focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 
-        active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out;
-
+    .card-img-div {
+        @apply flex-none w-56 relative
     }
 
     .card-img {
-        @apply rounded-t-lg
+        @apply absolute inset-0 w-full h-full object-cover rounded-lg
+    }
+
+    .card-body {
+        @apply flex flex-wrap flex-auto p-6 bg-white
+    }
+
+    .card-title {
+        @apply flex-auto font-medium text-slate-900 capitalize
+    }
+
+    .cardDesc {
+        @apply w-full flex-none mt-2 order-1 text-sm font-bold text-slate-700
+    }
+
+    .cardBtn {
+        @apply flex space-x-4 mb-5 text-sm font-medium
+    }
+    .subBtn {
+        @apply flex-auto flex space-x-4
+    }
+
+    .card-btn {
+        @apply h-10 px-6 font-semibold rounded-full bg-violet-600 text-white
     }
 }
